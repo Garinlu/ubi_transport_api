@@ -89,3 +89,8 @@ composer test
 
 * GET `/grade/class/average`
   Get grades average
+
+## Cors
+
+The default configuration of this API allow only request from localhost. For allowing another domain as request source,
+please update nelmio configuration.
