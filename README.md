@@ -25,11 +25,18 @@ composer install
 ```
 
 Then, Init database with script :
+
 ```shell
 composer initDb
 ```
 
-To finish, you must serve your application. There is an example for Nginx :
+To finish, configure your database authentication informations : 
+* For main database: create a file .env.local in set `DATABASE_URL` variable
+* For testing database: create a file .env.test.local in set `DATABASE_URL` variable
+
+### Serving your application
+
+There is an example for Nginx :
 
 ```
 server {
@@ -57,6 +64,7 @@ Or you can use the Dev server : `symfony server:start`
 ## Test
 
 To run Test, run :
+
 ```shell
 composer test
 ```
