@@ -135,6 +135,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "symfony/browser-kit": {
+        "version": "v5.2.0"
+    },
     "symfony/cache": {
         "version": "v5.2.0"
     },
@@ -178,6 +181,9 @@
         "version": "v2.2.0"
     },
     "symfony/doctrine-bridge": {
+        "version": "v5.2.0"
+    },
+    "symfony/dom-crawler": {
         "version": "v5.2.0"
     },
     "symfony/dotenv": {
@@ -301,6 +307,9 @@
     },
     "symfony/profiler-pack": {
         "version": "v1.0.5"
+    },
+    "symfony/property-access": {
+        "version": "v5.2.0"
     },
     "symfony/property-info": {
         "version": "v5.2.0"

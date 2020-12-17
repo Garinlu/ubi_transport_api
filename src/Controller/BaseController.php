@@ -22,6 +22,18 @@ abstract class BaseController extends AbstractController
     }
 
     /**
+     * Deserialize data from format to type
+     * @param string $data
+     * @param string $type
+     * @param string $format
+     * @return object
+     */
+    protected function deserialize(string $data, string $type, string $format)
+    {
+        return $this->serializer->deserialize($data, $type, $format);
+    }
+
+    /**
      * @param $data
      * @param array $groups An array of groups used to select the returned fields.
      * @return Response Return a Response object with json data.

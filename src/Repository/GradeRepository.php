@@ -3,7 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Grade;
+use App\Entity\Student;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,32 +21,29 @@ class GradeRepository extends ServiceEntityRepository
         parent::__construct($registry, Grade::class);
     }
 
-    // /**
-    //  * @return Grade[] Returns an array of Grade objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param Student $student
+     * @return float|null
+     * @throws NonUniqueResultException
+     */
+    public function averageOfStudent(Student $student): ?float
     {
-        return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('g.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return ($this->createQueryBuilder("g")
+                ->where("g.student = :student")
+                ->setParameter("student", $student)
+                ->select("AVG(g.value) as note")
+                ->groupBy("g.student")
+                ->getQuery()->getOneOrNullResult() ?? ["note" => null])["note"];
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Grade
+    /**
+     * @return float|null
+     * @throws NonUniqueResultException
+     */
+    public function averageOfClass(): ?float
     {
-        return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return ($this->createQueryBuilder("g")
+                ->select("AVG(g.value) as note")
+                ->getQuery()->getOneOrNullResult() ?? ["note" => null])["note"];
     }
-    */
 }

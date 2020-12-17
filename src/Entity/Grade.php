@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\GradeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=GradeRepository::class)
@@ -14,22 +15,26 @@ class Grade
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"full_grade"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"full_grade"})
      */
     private $value;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"full_grade"})
      */
     private $subject;
 
     /**
      * @ORM\ManyToOne(targetEntity=Student::class, inversedBy="grades")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"full_grade"})
      */
     private $student;
 

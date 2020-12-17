@@ -18,10 +18,15 @@ To use this API, you must clone this repository
 git clone https://github.com/Garinlu/ubi_transport_api.git
 ```
 
-Then, install all bundles :
+Then, go in the project folder, and install all packages :
 
 ```shell
 composer install
+```
+
+Then, Init database with script :
+```shell
+composer initDb
 ```
 
 To finish, you must serve your application. There is an example for Nginx :
@@ -53,5 +58,5 @@ Or you can use the Dev server : `symfony server:start`
 
 To run Test, run :
 ```shell
-php bin/phpunit
+composer test
 ```
