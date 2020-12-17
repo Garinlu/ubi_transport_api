@@ -30,7 +30,8 @@ Then, Init database with script :
 composer initDb
 ```
 
-To finish, configure your database authentication informations : 
+To finish, configure your database authentication informations :
+
 * For main database: create a file .env.local in set `DATABASE_URL` variable
 * For testing database: create a file .env.test.local in set `DATABASE_URL` variable
 
@@ -68,3 +69,23 @@ To run Test, run :
 ```shell
 composer test
 ```
+
+## Routes
+
+* PUT `/student`
+  Add a student
+
+* POST `/student/{id}`
+  Edit a student
+
+* DELETE `/student/{id}`
+  Remove a student
+
+* PUT `/grade/student/{id}`
+  Add a grade to a student
+
+* GET `/grade/student/{id}/average`
+  Get grades average of a student
+
+* GET `/grade/class/average`
+  Get grades average
